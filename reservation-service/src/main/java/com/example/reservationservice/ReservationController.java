@@ -1,19 +1,21 @@
 package com.example.reservationservice;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-/*@RestController
+@RefreshScope
+@RestController
 public class ReservationController {
 
-	@Autowired
-	ReservationRepository reservationRepository;
+	@Value("${message}")
+	private String message;
 	
-	@RequestMapping("/reservations")
-	public ResponseEntity getReservations(){
+	@RequestMapping("/message")
+	public String getReservations(){
 		
-		return reservationRepository.findAll();
+		return message;
 	}
-}*/
+
+}
